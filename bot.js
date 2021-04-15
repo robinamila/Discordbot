@@ -76,6 +76,15 @@ const FQ = [
 
     ]
 
+const rpsreply = [
+    "https://media1.tenor.com/images/2d93eb8b36a0dda1f793be9973422b59/tenor.gif?itemid=17770189",
+    "https://media1.tenor.com/images/5769b117d6ab10e72fd89ceddb4fd812/tenor.gif?itemid=12123441",
+    "https://media1.tenor.com/images/9291f2d01792367aac63f6adaf83c06e/tenor.gif?itemid=10788627",
+    "https://media1.tenor.com/images/fa01392ab5aa882c37b08251b8592a67/tenor.gif?itemid=10762645",
+    "https://media1.tenor.com/images/4a040b564fa21ec8516ccae925e21bbe/tenor.gif?itemid=17606322",
+    "https://media1.tenor.com/images/463876e54515805dea2c1c6da73e34ae/tenor.gif?itemid=9884029",
+]
+
 function readyDiscord(){
     console.log("up & running");
 }
@@ -152,6 +161,15 @@ async function gotMessage(msg){
     }
     
     //Rock Paper Scissors
+    if (msg.content== '#rps'){
+        const index = Math.floor(Math.random() * rpsreply.length);
+        msg.channel.send(rpsreply[index])
+        msg.channel.send("choose your desired weapon to battle me with").then(function(sentMessage) {
+            sentMessage.react('🪨').then(() => sentMessage.react('🧻')).then(() => sentMessage.react('✂️'))
+        });
+        
+        }
+    
   
-  
+    
 }
